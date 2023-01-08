@@ -1,0 +1,46 @@
+{% extends '_base.html' %}
+
+{% block page_title %}
+    Home
+{% endblock page_title %}
+
+{% block content %}
+    <div class="container-fluid bg-success">
+        <div class="row py-2">
+            <div class="col-md-8 col-md-10 mx-auto">
+                <h3 class="my-4 mt-3 text-light">Page of motivational sentences</h3>
+                <h5 class="text-dark">You also write a sentence...</h5>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-5">
+                {% for post in posts_list %}
+                    <div class="card shadow-sm my-3">
+                        <div class="card-body">
+
+                            <h4 class="card-title">{{ post.title }}</h4>
+                            <h6 class="card-subtitle mb-2 text-muted small py-2">By: {{ post.author }}</h6>
+                            <p class="card-text py-3">{{ post.text }}</p>
+                            <a href="{% url 'post_detail' post.id %}" class="btn btn-sm btn-warning">Read More</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{#    <div class="col-3">#}
+{#        <div class="card my-4">#}
+{#            <h5 class="card-header">About</h5>#}
+{#            <div class="card-body">#}
+{#                <p class="card-text">We love python and django. So we created a blog site to share our#}
+{#                    thoughts</p>#}
+{#                <a href="#"#}
+{#                   class="btn btn-sm btn-warning">#}
+{#                    More...#}
+{#                </a>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{% endblock content %}
